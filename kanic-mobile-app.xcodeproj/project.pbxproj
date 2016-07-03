@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0BB595DEC1355A7A3A55CEE0 /* Pods_kanic_mobile_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC428E94F46E3BD3802B5CF /* Pods_kanic_mobile_app.framework */; };
+		3B1F76561D287BFF001B267D /* Make.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F76551D287BFF001B267D /* Make.swift */; };
+		3B1F76591D28823C001B267D /* ServiceTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F76581D28823C001B267D /* ServiceTabViewController.swift */; };
+		3B1F765B1D28A0FF001B267D /* MakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F765A1D28A0FF001B267D /* MakeViewController.swift */; };
+		3B1F765D1D28A82A001B267D /* MakeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F765C1D28A82A001B267D /* MakeTableViewCell.swift */; };
+		3B1F765F1D28D7DD001B267D /* YearTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F765E1D28D7DD001B267D /* YearTableViewController.swift */; };
+		3B1F76611D28D87D001B267D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F76601D28D87D001B267D /* Model.swift */; };
+		3B1F76641D28FB56001B267D /* YearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F76631D28FB56001B267D /* YearTableViewCell.swift */; };
+		3B1F76661D297311001B267D /* ModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F76651D297311001B267D /* ModelTableViewCell.swift */; };
+		3B1F76681D297332001B267D /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F76671D297332001B267D /* ModelTableViewController.swift */; };
+		3B1F766A1D2977AB001B267D /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F76691D2977AB001B267D /* Year.swift */; };
+		3B1F766C1D298D8F001B267D /* ServiceSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F766B1D298D8F001B267D /* ServiceSelectViewController.swift */; };
+		3B1F766E1D299E94001B267D /* ServiceSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F766D1D299E94001B267D /* ServiceSelectTableViewCell.swift */; };
+		3B32B75D1D11A5D900067ED9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32B75C1D11A5D900067ED9 /* AppDelegate.swift */; };
+		3B32B75F1D11A5D900067ED9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32B75E1D11A5D900067ED9 /* ViewController.swift */; };
+		3B32B7621D11A5D900067ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B32B7601D11A5D900067ED9 /* Main.storyboard */; };
+		3B32B7641D11A5D900067ED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B32B7631D11A5D900067ED9 /* Assets.xcassets */; };
+		3B32B7671D11A5D900067ED9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B32B7651D11A5D900067ED9 /* LaunchScreen.storyboard */; };
+		3B49AB391D245FD100A19CC1 /* KanicClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49AB381D245FD100A19CC1 /* KanicClient.swift */; };
+		3B7243F51D170B83006637E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7243F41D170B83006637E0 /* LoginViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3B1F76551D287BFF001B267D /* Make.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Make.swift; sourceTree = "<group>"; };
+		3B1F76581D28823C001B267D /* ServiceTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTabViewController.swift; sourceTree = "<group>"; };
+		3B1F765A1D28A0FF001B267D /* MakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeViewController.swift; sourceTree = "<group>"; };
+		3B1F765C1D28A82A001B267D /* MakeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTableViewCell.swift; sourceTree = "<group>"; };
+		3B1F765E1D28D7DD001B267D /* YearTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearTableViewController.swift; sourceTree = "<group>"; };
+		3B1F76601D28D87D001B267D /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3B1F76631D28FB56001B267D /* YearTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearTableViewCell.swift; sourceTree = "<group>"; };
+		3B1F76651D297311001B267D /* ModelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTableViewCell.swift; sourceTree = "<group>"; };
+		3B1F76671D297332001B267D /* ModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
+		3B1F76691D2977AB001B267D /* Year.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
+		3B1F766B1D298D8F001B267D /* ServiceSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSelectViewController.swift; sourceTree = "<group>"; };
+		3B1F766D1D299E94001B267D /* ServiceSelectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSelectTableViewCell.swift; sourceTree = "<group>"; };
+		3B32B7591D11A5D900067ED9 /* kanic-mobile-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kanic-mobile-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B32B75C1D11A5D900067ED9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B32B75E1D11A5D900067ED9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B32B7611D11A5D900067ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3B32B7631D11A5D900067ED9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B32B7661D11A5D900067ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3B32B7681D11A5D900067ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B49AB381D245FD100A19CC1 /* KanicClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanicClient.swift; sourceTree = "<group>"; };
+		3B7243F41D170B83006637E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		541AB0953E3461A2FF53AFBF /* Pods-kanic-mobile-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanic-mobile-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kanic-mobile-app/Pods-kanic-mobile-app.debug.xcconfig"; sourceTree = "<group>"; };
+		8FC428E94F46E3BD3802B5CF /* Pods_kanic_mobile_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kanic_mobile_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96FC8941F7DDDF122A248CEF /* Pods-kanic-mobile-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanic-mobile-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-kanic-mobile-app/Pods-kanic-mobile-app.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B32B7561D11A5D900067ED9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BB595DEC1355A7A3A55CEE0 /* Pods_kanic_mobile_app.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		161F552C96DD7A7CD8428E74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FC428E94F46E3BD3802B5CF /* Pods_kanic_mobile_app.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2AE73CD23DE8C8E646F297DC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				541AB0953E3461A2FF53AFBF /* Pods-kanic-mobile-app.debug.xcconfig */,
+				96FC8941F7DDDF122A248CEF /* Pods-kanic-mobile-app.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3B1F76571D288200001B267D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3B1F76621D28FB2F001B267D /* Cells */,
+				3B1F76581D28823C001B267D /* ServiceTabViewController.swift */,
+				3B1F765A1D28A0FF001B267D /* MakeViewController.swift */,
+				3B1F765E1D28D7DD001B267D /* YearTableViewController.swift */,
+				3B1F76671D297332001B267D /* ModelTableViewController.swift */,
+				3B1F766B1D298D8F001B267D /* ServiceSelectViewController.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		3B1F76621D28FB2F001B267D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3B1F765C1D28A82A001B267D /* MakeTableViewCell.swift */,
+				3B1F76631D28FB56001B267D /* YearTableViewCell.swift */,
+				3B1F76651D297311001B267D /* ModelTableViewCell.swift */,
+				3B1F766D1D299E94001B267D /* ServiceSelectTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		3B32B7501D11A5D900067ED9 = {
+			isa = PBXGroup;
+			children = (
+				3B32B75B1D11A5D900067ED9 /* kanic-mobile-app */,
+				3B32B75A1D11A5D900067ED9 /* Products */,
+				2AE73CD23DE8C8E646F297DC /* Pods */,
+				161F552C96DD7A7CD8428E74 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3B32B75A1D11A5D900067ED9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B32B7591D11A5D900067ED9 /* kanic-mobile-app.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B32B75B1D11A5D900067ED9 /* kanic-mobile-app */ = {
+			isa = PBXGroup;
+			children = (
+				3B1F76571D288200001B267D /* Service */,
+				3B49AB371D245F9300A19CC1 /* Model */,
+				3B49AB361D2374F500A19CC1 /* API */,
+				3B32B75C1D11A5D900067ED9 /* AppDelegate.swift */,
+				3B32B75E1D11A5D900067ED9 /* ViewController.swift */,
+				3B32B7601D11A5D900067ED9 /* Main.storyboard */,
+				3B32B7631D11A5D900067ED9 /* Assets.xcassets */,
+				3B32B7651D11A5D900067ED9 /* LaunchScreen.storyboard */,
+				3B32B7681D11A5D900067ED9 /* Info.plist */,
+				3B7243F41D170B83006637E0 /* LoginViewController.swift */,
+			);
+			path = "kanic-mobile-app";
+			sourceTree = "<group>";
+		};
+		3B49AB361D2374F500A19CC1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3B49AB381D245FD100A19CC1 /* KanicClient.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		3B49AB371D245F9300A19CC1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B1F76551D287BFF001B267D /* Make.swift */,
+				3B1F76601D28D87D001B267D /* Model.swift */,
+				3B1F76691D2977AB001B267D /* Year.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B32B7581D11A5D900067ED9 /* kanic-mobile-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B32B76B1D11A5D900067ED9 /* Build configuration list for PBXNativeTarget "kanic-mobile-app" */;
+			buildPhases = (
+				98C3681F7F4091B0E3B22AA9 /* Check Pods Manifest.lock */,
+				3B32B7551D11A5D900067ED9 /* Sources */,
+				3B32B7561D11A5D900067ED9 /* Frameworks */,
+				3B32B7571D11A5D900067ED9 /* Resources */,
+				D8F27260413B8915BABB1DC1 /* Embed Pods Frameworks */,
+				8CC82A5F10B7F9E70D1409CC /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "kanic-mobile-app";
+			productName = "kanic-mobile-app";
+			productReference = 3B32B7591D11A5D900067ED9 /* kanic-mobile-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B32B7511D11A5D900067ED9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = kanic;
+				TargetAttributes = {
+					3B32B7581D11A5D900067ED9 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 872LGY9L56;
+					};
+				};
+			};
+			buildConfigurationList = 3B32B7541D11A5D900067ED9 /* Build configuration list for PBXProject "kanic-mobile-app" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B32B7501D11A5D900067ED9;
+			productRefGroup = 3B32B75A1D11A5D900067ED9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B32B7581D11A5D900067ED9 /* kanic-mobile-app */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B32B7571D11A5D900067ED9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B32B7671D11A5D900067ED9 /* LaunchScreen.storyboard in Resources */,
+				3B32B7641D11A5D900067ED9 /* Assets.xcassets in Resources */,
+				3B32B7621D11A5D900067ED9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8CC82A5F10B7F9E70D1409CC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kanic-mobile-app/Pods-kanic-mobile-app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98C3681F7F4091B0E3B22AA9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D8F27260413B8915BABB1DC1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kanic-mobile-app/Pods-kanic-mobile-app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B32B7551D11A5D900067ED9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B1F765B1D28A0FF001B267D /* MakeViewController.swift in Sources */,
+				3B1F76681D297332001B267D /* ModelTableViewController.swift in Sources */,
+				3B1F76591D28823C001B267D /* ServiceTabViewController.swift in Sources */,
+				3B1F76641D28FB56001B267D /* YearTableViewCell.swift in Sources */,
+				3B1F766C1D298D8F001B267D /* ServiceSelectViewController.swift in Sources */,
+				3B7243F51D170B83006637E0 /* LoginViewController.swift in Sources */,
+				3B49AB391D245FD100A19CC1 /* KanicClient.swift in Sources */,
+				3B32B75F1D11A5D900067ED9 /* ViewController.swift in Sources */,
+				3B1F766A1D2977AB001B267D /* Year.swift in Sources */,
+				3B1F76561D287BFF001B267D /* Make.swift in Sources */,
+				3B32B75D1D11A5D900067ED9 /* AppDelegate.swift in Sources */,
+				3B1F76611D28D87D001B267D /* Model.swift in Sources */,
+				3B1F765F1D28D7DD001B267D /* YearTableViewController.swift in Sources */,
+				3B1F765D1D28A82A001B267D /* MakeTableViewCell.swift in Sources */,
+				3B1F76661D297311001B267D /* ModelTableViewCell.swift in Sources */,
+				3B1F766E1D299E94001B267D /* ServiceSelectTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3B32B7601D11A5D900067ED9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B32B7611D11A5D900067ED9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3B32B7651D11A5D900067ED9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B32B7661D11A5D900067ED9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3B32B7691D11A5D900067ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B32B76A1D11A5D900067ED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B32B76C1D11A5D900067ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 541AB0953E3461A2FF53AFBF /* Pods-kanic-mobile-app.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "kanic-mobile-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kanic-mobile-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		3B32B76D1D11A5D900067ED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96FC8941F7DDDF122A248CEF /* Pods-kanic-mobile-app.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "kanic-mobile-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kanic-mobile-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B32B7541D11A5D900067ED9 /* Build configuration list for PBXProject "kanic-mobile-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B32B7691D11A5D900067ED9 /* Debug */,
+				3B32B76A1D11A5D900067ED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B32B76B1D11A5D900067ED9 /* Build configuration list for PBXNativeTarget "kanic-mobile-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B32B76C1D11A5D900067ED9 /* Debug */,
+				3B32B76D1D11A5D900067ED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B32B7511D11A5D900067ED9 /* Project object */;
+}

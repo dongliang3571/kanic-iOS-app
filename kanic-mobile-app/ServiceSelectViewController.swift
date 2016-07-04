@@ -79,6 +79,10 @@ extension ServiceSelectViewController: UITableViewDataSource, UITableViewDelegat
         return 30
     }
     
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//    }
+    
 //    func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
 //        var temp = indexOfNumbers as NSArray
 //        return temp.indexOfObject(title)

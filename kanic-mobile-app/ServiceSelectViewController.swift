@@ -37,10 +37,6 @@ class ServiceSelectViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-//    
-//    override func viewDidAppear(animated: Bool) {
-//        self.ServiceSelectTableView.reloadData()
-//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let backItem = UIBarButtonItem()
@@ -56,11 +52,7 @@ extension ServiceSelectViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberRows: [Int]
-        if let tempService = self.services {
-            numberRows = [tempService.count+1, 2, 1]
-        } else {
-            numberRows = [1, 1, 2, 1]
-        }
+        numberRows = [1, 1, 1, 1]
         return numberRows[section]
     }
     
@@ -69,17 +61,19 @@ extension ServiceSelectViewController: UITableViewDataSource, UITableViewDelegat
         if cell.reusedRowLabel == nil {
             cell.reusedRowLabel = UILabel(frame: CGRect(x: CGFloat(15), y: CGFloat(5), width: CGFloat(300), height: CGFloat(30)))
         }
-        let rowText = [["Choose your vehicle"], ["Choose a service"], ["Date", "Time"], ["Location"]]
+        let rowText = [["Choose your vehicle"], ["Choose a service"], ["Choose date and time"], ["Location search"]]
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-//        if self.model != nil && indexPath.section == 0 && indexPath.row == 0 {
-//            cell.reusedRowLabel!.text = "\(model!.make!) \(model!.name!) \(model!.year!)"
-//        }
-//        if self.services?.count != nil && indexPath.section == 0 && indexPath.row == 1 {
-//            print("im inside service")
-//            print(services)
-//            cell.reusedRowLabel!.text = services![0].name
-//        }
-        cell.reusedRowLabel!.text = rowText[indexPath.section][indexPath.row]
+        if (self.model != nil && indexPath.section == 0 && indexPath.row == 0) {
+            print("im inside vehicle")
+            cell.reusedRowLabel!.text = "\(model!.make!) \(model!.name!) \(model!.year!)"
+        } else if (self.services?.count != nil && indexPath.section == 1 && indexPath.row == 0) {
+            print("im inside service")
+            print(services)
+            cell.reusedRowLabel!.text = services![0].name
+        } else {
+            cell.reusedRowLabel!.text = rowText[indexPath.section][indexPath.row]
+        }
+        
         cell.addSubview(cell.reusedRowLabel!)
         
         return cell
@@ -97,7 +91,7 @@ extension ServiceSelectViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let identifiers = [["vehicleSegue", "serviceSegue"]]
+        let identifiers = [["vehicleSegue"], ["serviceSegue"], ["dateSegue"], ["locationSegue"]]
         self.performSegueWithIdentifier(identifiers[indexPath.section][indexPath.row], sender: tableView.cellForRowAtIndexPath(indexPath))
     }
     

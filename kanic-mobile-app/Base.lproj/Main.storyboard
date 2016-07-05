@@ -5,6 +5,72 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Date Time View Controller-->
+        <scene sceneID="TcJ-QE-Sdq">
+            <objects>
+                <viewController id="cIq-fw-zYs" customClass="DateTimeViewController" customModule="kanic_mobile_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zzZ-1p-Cdx"/>
+                        <viewControllerLayoutGuide type="bottom" id="vhH-PQ-IzS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Oah-9U-TVb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Svd-i9-8hq">
+                                <rect key="frame" x="0.0" y="303" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="489391432.38628">
+                                    <!--2016-07-05 06:03:52 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dec 20 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWU-uu-fvr">
+                                <rect key="frame" x="111" y="148" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fdd-Tl-ngv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3545" y="320"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="uED-pj-prs">
+            <objects>
+                <viewController id="xTD-3i-9jb" customClass="LocationViewController" customModule="kanic_mobile_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b5f-8g-gJM"/>
+                        <viewControllerLayoutGuide type="bottom" id="REV-No-N9a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qvw-5y-ReG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TxQ-ph-teP">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TxQ-ph-teP" firstAttribute="top" secondItem="b5f-8g-gJM" secondAttribute="bottom" id="TVb-Rq-rC0"/>
+                            <constraint firstItem="REV-No-N9a" firstAttribute="top" secondItem="TxQ-ph-teP" secondAttribute="bottom" id="i3u-5v-Wto"/>
+                            <constraint firstItem="TxQ-ph-teP" firstAttribute="leading" secondItem="qvw-5y-ReG" secondAttribute="leading" id="ou0-6R-Kbc"/>
+                            <constraint firstAttribute="trailing" secondItem="TxQ-ph-teP" secondAttribute="trailing" id="xzI-sN-f7l"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mapView" destination="TxQ-ph-teP" id="RL7-bm-0u6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L9j-Vu-Wip" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3545" y="954"/>
+        </scene>
         <!--Kanic-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -101,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3893" y="797"/>
+            <point key="canvasLocation" x="3017" y="2299"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="rKe-cT-7Ln">
@@ -192,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giT-DH-cMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3129" y="724"/>
+            <point key="canvasLocation" x="2517" y="1419"/>
         </scene>
         <!--Kanic-->
         <scene sceneID="PbU-X7-0kU">
@@ -265,6 +331,8 @@
                         <outlet property="ServiceSelectTableView" destination="dFI-YO-ZDs" id="dVD-tA-Pnw"/>
                         <segue destination="MeU-L3-L0a" kind="show" identifier="vehicleSegue" id="d0s-4V-Udd"/>
                         <segue destination="ByJ-YV-OLI" kind="show" identifier="serviceSegue" id="Q8M-bG-nCV"/>
+                        <segue destination="cIq-fw-zYs" kind="show" identifier="dateSegue" id="9aP-FR-QNi"/>
+                        <segue destination="xTD-3i-9jb" kind="show" identifier="locationSegue" id="bcz-F9-cc3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMw-ya-OsM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -324,7 +392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2XA-c9-ZQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3531" y="161"/>
+            <point key="canvasLocation" x="3545" y="-299"/>
         </scene>
         <!--Make View Controller-->
         <scene sceneID="rM6-p1-SZq">
@@ -380,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6KI-te-EfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3545" y="-606"/>
+            <point key="canvasLocation" x="3545" y="-921"/>
         </scene>
         <!--Year Table View Controller-->
         <scene sceneID="zGy-Dh-JvT">
@@ -436,7 +504,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kek-bJ-5ZG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3924" y="-606"/>
+            <point key="canvasLocation" x="3937" y="-921"/>
         </scene>
         <!--Model Table View Controller-->
         <scene sceneID="B7G-LQ-xE7">
@@ -491,7 +559,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUj-oS-VBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4330" y="-606"/>
+            <point key="canvasLocation" x="4321" y="-921"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zUb-Cy-pTF">
@@ -529,7 +597,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTZ-pz-VeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2266" y="-147"/>
+            <point key="canvasLocation" x="2238" y="-299"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="bCV-09-noo">
@@ -548,7 +616,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4s-aW-mC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2597" y="724"/>
+            <point key="canvasLocation" x="2139" y="1419"/>
         </scene>
     </scenes>
 </document>

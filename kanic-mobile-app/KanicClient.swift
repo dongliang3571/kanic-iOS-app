@@ -24,7 +24,7 @@ class KanicClient: NSObject {
         }
         
         dispatch_once(&Static.token) {
-            Static.instance = KanicClient(baseURL: NSURL(string: "http://127.0.0.1:8000/api-beta/")!)
+            Static.instance = KanicClient(baseURL: NSURL(string: "http://192.168.1.3:8000/api-beta/")!)
         }
         return Static.instance!
     }

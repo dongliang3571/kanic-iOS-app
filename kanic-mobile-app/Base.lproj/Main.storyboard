@@ -133,8 +133,10 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7f-vK-Vnn">
                                 <rect key="frame" x="130" y="240" width="47" height="30"/>
+                                <color key="backgroundColor" red="0.21176470589999999" green="0.70980392160000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign in">
-                                    <color key="titleColor" red="0.21176470588235294" green="0.70980392156862748" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.21176470589999999" green="0.70980392160000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD9-V8-38h">
@@ -164,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="992" y="267"/>
         </scene>
-        <!--Kanic-->
+        <!--Profile-->
         <scene sceneID="vLV-nc-lpe">
             <objects>
-                <viewController id="awX-oI-qMI" sceneMemberID="viewController">
+                <viewController id="awX-oI-qMI" customClass="ProfileViewController" customModule="kanic_mobile_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ulR-4U-fwm"/>
                         <viewControllerLayoutGuide type="bottom" id="EAs-qc-ut1"/>
@@ -176,16 +178,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUP-DU-Ftu">
-                                <rect key="frame" x="137" y="130" width="47" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRY-iA-3EA">
+                                <rect key="frame" x="134" y="459" width="52" height="30"/>
+                                <state key="normal" title="Log out"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Kanic" id="C7F-rT-ruo"/>
+                    <navigationItem key="navigationItem" title="Profile" id="C7F-rT-ruo"/>
+                    <connections>
+                        <outlet property="logOutButton" destination="XRY-iA-3EA" id="sU4-Hz-S8b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giT-DH-cMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -204,8 +207,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jN9-Wh-1V6">
-                                <rect key="frame" x="93" y="224" width="124" height="30"/>
-                                <state key="normal" title="Request a Service"/>
+                                <rect key="frame" x="62" y="207" width="197" height="30"/>
+                                <state key="normal" title="Request a Service">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -243,9 +248,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="MeU-L3-L0a" kind="show" id="NfC-BB-0cb"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -261,40 +263,68 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="ServiceSelectTableView" destination="dFI-YO-ZDs" id="dVD-tA-Pnw"/>
+                        <segue destination="MeU-L3-L0a" kind="show" identifier="vehicleSegue" id="d0s-4V-Udd"/>
+                        <segue destination="ByJ-YV-OLI" kind="show" identifier="serviceSegue" id="Q8M-bG-nCV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMw-ya-OsM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3076" y="-147"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="cKc-XR-gYG">
+        <!--Service Choose View Controller-->
+        <scene sceneID="Pr3-d1-rD7">
             <objects>
-                <tableViewController id="WmV-Lj-Gmf" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="l6m-wB-wRx">
+                <viewController id="ByJ-YV-OLI" customClass="ServiceChooseViewController" customModule="kanic_mobile_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="89W-cs-6Ff"/>
+                        <viewControllerLayoutGuide type="bottom" id="kWt-S3-aOR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nwD-XL-QXI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="naY-CF-nj7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ServiceCell" id="bcX-XR-RNM" customClass="ServiceTableViewCell" customModule="kanic_mobile_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bcX-XR-RNM" id="KGv-UQ-UYb">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oil change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlD-Dm-xrz">
+                                                    <rect key="frame" x="16" y="11" width="285" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ServiceLabel" destination="vlD-Dm-xrz" id="3PJ-ZR-JDx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6aU-yA-OhN">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6aU-yA-OhN" id="pnS-Bl-lLe">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="WmV-Lj-Gmf" id="uoy-tB-LeL"/>
-                            <outlet property="delegate" destination="WmV-Lj-Gmf" id="w01-fE-g3E"/>
-                        </connections>
-                    </tableView>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="naY-CF-nj7" secondAttribute="bottom" id="5eP-ii-6aw"/>
+                            <constraint firstItem="naY-CF-nj7" firstAttribute="top" secondItem="nwD-XL-QXI" secondAttribute="top" id="N4x-oK-tSZ"/>
+                            <constraint firstAttribute="trailing" secondItem="naY-CF-nj7" secondAttribute="trailing" id="WjN-oE-sfz"/>
+                            <constraint firstItem="naY-CF-nj7" firstAttribute="leading" secondItem="nwD-XL-QXI" secondAttribute="leading" id="ym8-2V-S4c"/>
+                        </constraints>
+                    </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o55-53-EUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="ServiceTableView" destination="naY-CF-nj7" id="rT4-R7-9Tn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2XA-c9-ZQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3545" y="78"/>
+            <point key="canvasLocation" x="3531" y="161"/>
         </scene>
         <!--Make View Controller-->
         <scene sceneID="rM6-p1-SZq">
@@ -316,7 +346,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bfd-s8-0Yo" id="uFn-Mq-fwP">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="make name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvR-HI-4uL">

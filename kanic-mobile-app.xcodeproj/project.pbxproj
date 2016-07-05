@@ -20,10 +20,14 @@
 		3B1F766A1D2977AB001B267D /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F76691D2977AB001B267D /* Year.swift */; };
 		3B1F766C1D298D8F001B267D /* ServiceSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F766B1D298D8F001B267D /* ServiceSelectViewController.swift */; };
 		3B1F766E1D299E94001B267D /* ServiceSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F766D1D299E94001B267D /* ServiceSelectTableViewCell.swift */; };
+		3B1F76721D2A2A98001B267D /* ServiceChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F76711D2A2A98001B267D /* ServiceChooseViewController.swift */; };
+		3B1F76741D2A2B9C001B267D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F76731D2A2B9C001B267D /* Service.swift */; };
+		3B1F76781D2A34CF001B267D /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F76771D2A34CF001B267D /* ServiceTableViewCell.swift */; };
+		3B1F767D1D2B0395001B267D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F767C1D2B0395001B267D /* ProfileViewController.swift */; };
+		3B1F767F1D2B1EAE001B267D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B1F767E1D2B1EAE001B267D /* Assets.xcassets */; };
 		3B32B75D1D11A5D900067ED9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32B75C1D11A5D900067ED9 /* AppDelegate.swift */; };
 		3B32B75F1D11A5D900067ED9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32B75E1D11A5D900067ED9 /* ViewController.swift */; };
 		3B32B7621D11A5D900067ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B32B7601D11A5D900067ED9 /* Main.storyboard */; };
-		3B32B7641D11A5D900067ED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B32B7631D11A5D900067ED9 /* Assets.xcassets */; };
 		3B32B7671D11A5D900067ED9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B32B7651D11A5D900067ED9 /* LaunchScreen.storyboard */; };
 		3B49AB391D245FD100A19CC1 /* KanicClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49AB381D245FD100A19CC1 /* KanicClient.swift */; };
 		3B7243F51D170B83006637E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7243F41D170B83006637E0 /* LoginViewController.swift */; };
@@ -42,11 +46,15 @@
 		3B1F76691D2977AB001B267D /* Year.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
 		3B1F766B1D298D8F001B267D /* ServiceSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSelectViewController.swift; sourceTree = "<group>"; };
 		3B1F766D1D299E94001B267D /* ServiceSelectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSelectTableViewCell.swift; sourceTree = "<group>"; };
+		3B1F76711D2A2A98001B267D /* ServiceChooseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceChooseViewController.swift; sourceTree = "<group>"; };
+		3B1F76731D2A2B9C001B267D /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		3B1F76771D2A34CF001B267D /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		3B1F767C1D2B0395001B267D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3B1F767E1D2B1EAE001B267D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B32B7591D11A5D900067ED9 /* kanic-mobile-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kanic-mobile-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B32B75C1D11A5D900067ED9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B32B75E1D11A5D900067ED9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3B32B7611D11A5D900067ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3B32B7631D11A5D900067ED9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B32B7661D11A5D900067ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B32B7681D11A5D900067ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B49AB381D245FD100A19CC1 /* KanicClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanicClient.swift; sourceTree = "<group>"; };
@@ -85,17 +93,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		3B1F76571D288200001B267D /* Service */ = {
+		3B1F76571D288200001B267D /* Tab_1_Service */ = {
 			isa = PBXGroup;
 			children = (
-				3B1F76621D28FB2F001B267D /* Cells */,
+				3B1F76701D2A2A5A001B267D /* ChooseService */,
+				3B1F766F1D2A2A31001B267D /* ChooseVehicle */,
+				3B1F76751D2A3488001B267D /* Cells */,
 				3B1F76581D28823C001B267D /* ServiceTabViewController.swift */,
-				3B1F765A1D28A0FF001B267D /* MakeViewController.swift */,
-				3B1F765E1D28D7DD001B267D /* YearTableViewController.swift */,
-				3B1F76671D297332001B267D /* ModelTableViewController.swift */,
 				3B1F766B1D298D8F001B267D /* ServiceSelectViewController.swift */,
 			);
-			name = Service;
+			name = Tab_1_Service;
 			sourceTree = "<group>";
 		};
 		3B1F76621D28FB2F001B267D /* Cells */ = {
@@ -104,9 +111,52 @@
 				3B1F765C1D28A82A001B267D /* MakeTableViewCell.swift */,
 				3B1F76631D28FB56001B267D /* YearTableViewCell.swift */,
 				3B1F76651D297311001B267D /* ModelTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		3B1F766F1D2A2A31001B267D /* ChooseVehicle */ = {
+			isa = PBXGroup;
+			children = (
+				3B1F76621D28FB2F001B267D /* Cells */,
+				3B1F765A1D28A0FF001B267D /* MakeViewController.swift */,
+				3B1F765E1D28D7DD001B267D /* YearTableViewController.swift */,
+				3B1F76671D297332001B267D /* ModelTableViewController.swift */,
+			);
+			name = ChooseVehicle;
+			sourceTree = "<group>";
+		};
+		3B1F76701D2A2A5A001B267D /* ChooseService */ = {
+			isa = PBXGroup;
+			children = (
+				3B1F76761D2A34AC001B267D /* Cells */,
+				3B1F76711D2A2A98001B267D /* ServiceChooseViewController.swift */,
+			);
+			name = ChooseService;
+			sourceTree = "<group>";
+		};
+		3B1F76751D2A3488001B267D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
 				3B1F766D1D299E94001B267D /* ServiceSelectTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		3B1F76761D2A34AC001B267D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3B1F76771D2A34CF001B267D /* ServiceTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		3B1F76791D2B0331001B267D /* Tab_2_Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3B1F767C1D2B0395001B267D /* ProfileViewController.swift */,
+			);
+			name = Tab_2_Profile;
 			sourceTree = "<group>";
 		};
 		3B32B7501D11A5D900067ED9 = {
@@ -130,16 +180,17 @@
 		3B32B75B1D11A5D900067ED9 /* kanic-mobile-app */ = {
 			isa = PBXGroup;
 			children = (
-				3B1F76571D288200001B267D /* Service */,
+				3B1F76571D288200001B267D /* Tab_1_Service */,
+				3B1F76791D2B0331001B267D /* Tab_2_Profile */,
 				3B49AB371D245F9300A19CC1 /* Model */,
 				3B49AB361D2374F500A19CC1 /* API */,
 				3B32B75C1D11A5D900067ED9 /* AppDelegate.swift */,
 				3B32B75E1D11A5D900067ED9 /* ViewController.swift */,
 				3B32B7601D11A5D900067ED9 /* Main.storyboard */,
-				3B32B7631D11A5D900067ED9 /* Assets.xcassets */,
 				3B32B7651D11A5D900067ED9 /* LaunchScreen.storyboard */,
 				3B32B7681D11A5D900067ED9 /* Info.plist */,
 				3B7243F41D170B83006637E0 /* LoginViewController.swift */,
+				3B1F767E1D2B1EAE001B267D /* Assets.xcassets */,
 			);
 			path = "kanic-mobile-app";
 			sourceTree = "<group>";
@@ -158,6 +209,7 @@
 				3B1F76551D287BFF001B267D /* Make.swift */,
 				3B1F76601D28D87D001B267D /* Model.swift */,
 				3B1F76691D2977AB001B267D /* Year.swift */,
+				3B1F76731D2A2B9C001B267D /* Service.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -225,7 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B32B7671D11A5D900067ED9 /* LaunchScreen.storyboard in Resources */,
-				3B32B7641D11A5D900067ED9 /* Assets.xcassets in Resources */,
+				3B1F767F1D2B1EAE001B267D /* Assets.xcassets in Resources */,
 				3B32B7621D11A5D900067ED9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,11 +339,15 @@
 			files = (
 				3B1F765B1D28A0FF001B267D /* MakeViewController.swift in Sources */,
 				3B1F76681D297332001B267D /* ModelTableViewController.swift in Sources */,
+				3B1F767D1D2B0395001B267D /* ProfileViewController.swift in Sources */,
 				3B1F76591D28823C001B267D /* ServiceTabViewController.swift in Sources */,
 				3B1F76641D28FB56001B267D /* YearTableViewCell.swift in Sources */,
+				3B1F76781D2A34CF001B267D /* ServiceTableViewCell.swift in Sources */,
 				3B1F766C1D298D8F001B267D /* ServiceSelectViewController.swift in Sources */,
+				3B1F76741D2A2B9C001B267D /* Service.swift in Sources */,
 				3B7243F51D170B83006637E0 /* LoginViewController.swift in Sources */,
 				3B49AB391D245FD100A19CC1 /* KanicClient.swift in Sources */,
+				3B1F76721D2A2A98001B267D /* ServiceChooseViewController.swift in Sources */,
 				3B32B75F1D11A5D900067ED9 /* ViewController.swift in Sources */,
 				3B1F766A1D2977AB001B267D /* Year.swift in Sources */,
 				3B1F76561D287BFF001B267D /* Make.swift in Sources */,

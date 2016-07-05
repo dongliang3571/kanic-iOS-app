@@ -16,7 +16,6 @@ class MakeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.makeTableView.delegate = self
         self.makeTableView.dataSource = self
 //        self.makeTableView.estimatedRowHeight = 4
@@ -47,6 +46,11 @@ class MakeViewController: UIViewController {
         let make = makes![(indexPath?.row)!]
         let yearTableViewController = segue.destinationViewController as! YearTableViewController
         yearTableViewController.make = make
+        
+        // Change back button attribute
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        self.navigationItem.backBarButtonItem = backItem
     }
 
 }

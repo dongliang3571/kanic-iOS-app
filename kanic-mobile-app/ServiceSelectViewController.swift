@@ -12,10 +12,19 @@ class ServiceSelectViewController: UIViewController {
 
     @IBOutlet weak var ServiceSelectTableView: UITableView!
     
+    // Track user current car and service
+    var model: Model? = nil
+    var services: [Service]? = nil
+    
+    // A reusable label for table header
+    var reusedHeaderLabel: UILabel? = nil
+    
+    // Header identifier for reusing purposes
     let HeaderViewIdentifier = "TableViewHeaderView"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.ServiceSelectTableView.delegate = self
         self.ServiceSelectTableView.dataSource = self
         ServiceSelectTableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
@@ -23,55 +32,63 @@ class ServiceSelectViewController: UIViewController {
         self.ServiceSelectTableView.tableFooterView = UIView()
         self.ServiceSelectTableView.reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+//    
+//    override func viewDidAppear(animated: Bool) {
+//        self.ServiceSelectTableView.reloadData()
+//    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        self.navigationItem.backBarButtonItem = backItem
     }
-    */
-
 }
 
 extension ServiceSelectViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        var numberRows: [Int]
+        if let tempService = self.services {
+            numberRows = [tempService.count+1, 2, 1]
+        } else {
+            numberRows = [1, 1, 2, 1]
+        }
+        return numberRows[section]
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ServiceSelectCell", forIndexPath: indexPath) as! ServiceSelectTableViewCell
-        var textLabel = UILabel(frame: CGRect(x: CGFloat(10), y: CGFloat(5), width: CGFloat(200), height: CGFloat(30)))
-        var rowText = [String]()
-        if indexPath.section == 0 {
-            rowText = ["Choose your vehicle", "Choose a service"]
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            textLabel.text = rowText[indexPath.row]
-            cell.addSubview(textLabel)
+        if cell.reusedRowLabel == nil {
+            cell.reusedRowLabel = UILabel(frame: CGRect(x: CGFloat(15), y: CGFloat(5), width: CGFloat(300), height: CGFloat(30)))
         }
+        let rowText = [["Choose your vehicle"], ["Choose a service"], ["Date", "Time"], ["Location"]]
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+//        if self.model != nil && indexPath.section == 0 && indexPath.row == 0 {
+//            cell.reusedRowLabel!.text = "\(model!.make!) \(model!.name!) \(model!.year!)"
+//        }
+//        if self.services?.count != nil && indexPath.section == 0 && indexPath.row == 1 {
+//            print("im inside service")
+//            print(services)
+//            cell.reusedRowLabel!.text = services![0].name
+//        }
+        cell.reusedRowLabel!.text = rowText[indexPath.section][indexPath.row]
+        cell.addSubview(cell.reusedRowLabel!)
         
         return cell
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerText = ["Car and Service", "Date and Time", "Location"]
+        let headerText = ["Car", "Service", "Date and Time", "Location"]
         let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderViewIdentifier)! as UITableViewHeaderFooterView
-        var textLabel = UILabel(frame: CGRect(x: CGFloat(10), y: CGFloat(0), width: CGFloat(200), height: CGFloat(30)))
-        
-        textLabel.text = headerText[section]
-        header.addSubview(textLabel)
+        header.textLabel!.text = headerText[section]
         return header
     }
     
@@ -79,9 +96,10 @@ extension ServiceSelectViewController: UITableViewDataSource, UITableViewDelegat
         return 30
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let identifiers = [["vehicleSegue", "serviceSegue"]]
+        self.performSegueWithIdentifier(identifiers[indexPath.section][indexPath.row], sender: tableView.cellForRowAtIndexPath(indexPath))
+    }
     
 //    func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
 //        var temp = indexOfNumbers as NSArray

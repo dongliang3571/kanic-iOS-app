@@ -50,6 +50,34 @@ class LoginViewController: UIViewController {
         })
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Tar bar controller
+        let targetController = segue.destinationViewController as? UITabBarController
+        targetController?.tabBar.tintColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0)    // change selected tab bar item color
+//        targetController?.tabBar.barTintColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0)  // Tab bar background color
+        
+        //change top bar attributes for navigation controller 1
+        var navController = targetController?.viewControllers![0] as? UINavigationController
+        navController!.navigationBar.barTintColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0)  // Top bar color
+        navController?.navigationBar.tintColor = UIColor.whiteColor()  // Set back button arrow color to white
+        navController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]  // Title color
+        
+        // Tab Bar Item 1
+        var customTabBarItem: UITabBarItem = UITabBarItem(title: "Service", image: UIImage(named: "wrench_w")?.imageWithRenderingMode(UIImageRenderingMode.Automatic), selectedImage: UIImage(named: "wrench_b"))
+//        customTabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.grayColor()], forState:.Normal)  // change text color
+        targetController?.viewControllers![0].tabBarItem = customTabBarItem
+        
+        // Change top bar attributes for navigation controller 2
+        navController = targetController?.viewControllers![1] as? UINavigationController    // Top bar color
+        navController!.navigationBar.barTintColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0)
+        navController?.navigationBar.tintColor = UIColor.whiteColor()  // Set back button arrow color to white
+        navController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]  // Title color
+        
+        // Tab Bar Item 2
+        customTabBarItem = UITabBarItem(title: "Service", image: UIImage(named: "profile_w")?.imageWithRenderingMode(UIImageRenderingMode.Automatic), selectedImage: UIImage(named: "profile_b"))
+        targetController?.viewControllers![1].tabBarItem = customTabBarItem
+    }
+    
     
 }
 

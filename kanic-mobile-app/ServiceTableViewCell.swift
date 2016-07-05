@@ -1,21 +1,26 @@
 //
-//  ServiceSelectTableViewCell.swift
+//  ServiceTableViewCell.swift
 //  kanic-mobile-app
 //
-//  Created by dong liang on 7/3/16.
+//  Created by dong liang on 7/4/16.
 //  Copyright © 2016 kanic. All rights reserved.
 //
 
 import UIKit
 
-class ServiceSelectTableViewCell: UITableViewCell {
+class ServiceTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var ServiceLabel: UILabel!
     
-    var reusedRowLabel: UILabel? = nil
+    var service: Service? = nil {
+        didSet {
+            self.ServiceLabel.text = self.service?.name!
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
+        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

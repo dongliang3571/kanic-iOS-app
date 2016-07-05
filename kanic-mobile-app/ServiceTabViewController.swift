@@ -14,8 +14,7 @@ class ServiceTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        requestButton.addTarget(self, action: #selector(RequestService), forControlEvents: UIControlEvents.TouchUpInside)
+        UISetUp()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,15 +25,20 @@ class ServiceTabViewController: UIViewController {
     func RequestService(sender: AnyObject) {
         performSegueWithIdentifier("requestSegue", sender: self)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func UISetUp() {        
+//        set up for button
+        self.requestButton.backgroundColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0)
+        self.requestButton.layer.cornerRadius = 5
+        self.requestButton.layer.borderWidth = 1
+        self.requestButton.layer.borderColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0).CGColor
+        self.requestButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.requestButton.addTarget(self, action: #selector(RequestService), forControlEvents: UIControlEvents.TouchUpInside)
     }
-    */
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        self.navigationItem.backBarButtonItem = backItem
+    }
 }

@@ -15,6 +15,7 @@ class ModelTableViewController: UIViewController {
     var years: Year? = nil
     var yearInt: Int? = nil
     var models: [Model]? = nil
+    var sectionForSelectionViewController: Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +67,7 @@ extension ModelTableViewController: UITableViewDataSource, UITableViewDelegate {
         let targetViewController = self.navigationController?.viewControllers[1] as? ServiceSelectViewController
         targetViewController?.model = self.models![indexPath.row]
         self.navigationController?.popToViewController((self.navigationController?.viewControllers[1])!, animated: true)
-        targetViewController!.ServiceSelectTableView.reloadData()
+        targetViewController!.ServiceSelectTableView.reloadSections(NSIndexSet(index: self.sectionForSelectionViewController!), withRowAnimation: UITableViewRowAnimation.Right)
     }
 }
 

@@ -13,6 +13,8 @@ class MakeViewController: UIViewController {
     @IBOutlet weak var makeTableView: UITableView!
     
     var makes: [Make]? = nil
+    var sectionForSelectionViewController: Int? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,7 @@ class MakeViewController: UIViewController {
         let make = makes![(indexPath?.row)!]
         let yearTableViewController = segue.destinationViewController as! YearTableViewController
         yearTableViewController.make = make
+        yearTableViewController.sectionForSelectionViewController = self.sectionForSelectionViewController
         
         // Change back button attribute
         let backItem = UIBarButtonItem()

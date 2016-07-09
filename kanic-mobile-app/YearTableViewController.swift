@@ -16,6 +16,7 @@ class YearTableViewController: UIViewController {
     var model: Model? = nil
     var years: Year? = nil
     var yearInt: [Int]? = nil
+    var sectionForSelectionViewController: Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,7 @@ class YearTableViewController: UIViewController {
         let modelTableViewController = segue.destinationViewController as! ModelTableViewController
         modelTableViewController.years = self.years
         modelTableViewController.yearInt = yearInt
+        modelTableViewController.sectionForSelectionViewController = self.sectionForSelectionViewController
         
         // Change back button attribute
         let backItem = UIBarButtonItem()

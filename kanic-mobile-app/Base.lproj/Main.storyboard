@@ -50,7 +50,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TxQ-ph-teP">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TxQ-ph-teP">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                             </mapView>
                         </subviews>
@@ -304,7 +304,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dFI-YO-ZDs">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="484"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ServiceSelectCell" id="F36-vA-EXl" customClass="ServiceSelectTableViewCell" customModule="kanic_mobile_app" customModuleProvider="target">
@@ -317,17 +317,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVk-Ug-ifs">
+                                <rect key="frame" x="0.0" y="481" width="320" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="hVp-Br-IqM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GVk-Ug-ifs" secondAttribute="trailing" id="3NN-7g-y7r"/>
                             <constraint firstItem="dFI-YO-ZDs" firstAttribute="leading" secondItem="gZ3-Bv-8V1" secondAttribute="leading" id="96n-Z0-jvN"/>
                             <constraint firstAttribute="trailing" secondItem="dFI-YO-ZDs" secondAttribute="trailing" id="C59-D8-TrP"/>
-                            <constraint firstAttribute="bottom" secondItem="dFI-YO-ZDs" secondAttribute="bottom" id="Eqd-jn-DKb"/>
+                            <constraint firstItem="GVk-Ug-ifs" firstAttribute="leading" secondItem="gZ3-Bv-8V1" secondAttribute="leading" id="EjJ-e5-nz6"/>
+                            <constraint firstAttribute="bottom" secondItem="dFI-YO-ZDs" secondAttribute="bottom" constant="84" id="Eqd-jn-DKb"/>
+                            <constraint firstItem="jQj-iP-VP2" firstAttribute="top" secondItem="GVk-Ug-ifs" secondAttribute="bottom" id="Mxj-To-3cs"/>
                             <constraint firstItem="dFI-YO-ZDs" firstAttribute="top" secondItem="gZ3-Bv-8V1" secondAttribute="top" id="ctz-bN-sZB"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="NextButton" destination="GVk-Ug-ifs" id="UQ5-K4-E5R"/>
                         <outlet property="ServiceSelectTableView" destination="dFI-YO-ZDs" id="dVD-tA-Pnw"/>
                         <segue destination="MeU-L3-L0a" kind="show" identifier="vehicleSegue" id="d0s-4V-Udd"/>
                         <segue destination="ByJ-YV-OLI" kind="show" identifier="serviceSegue" id="Q8M-bG-nCV"/>

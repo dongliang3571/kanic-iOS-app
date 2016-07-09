@@ -33,6 +33,7 @@ class ServiceTabViewController: UIViewController {
         self.requestButton.layer.borderWidth = 1
         self.requestButton.layer.borderColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0).CGColor
         self.requestButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.requestButton.setTitle("Book a Service", forState: UIControlState.Normal)
         self.requestButton.addTarget(self, action: #selector(RequestService), forControlEvents: UIControlEvents.TouchUpInside)
     }
 

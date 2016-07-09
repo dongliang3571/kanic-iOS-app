@@ -13,6 +13,7 @@ class ServiceChooseViewController: UIViewController {
     @IBOutlet weak var ServiceTableView: UITableView!
     
     var services: [Service]? = nil
+    var sectionForSelectionViewController: Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +91,6 @@ extension ServiceChooseViewController: UITableViewDataSource, UITableViewDelegat
         }
         targetViewController?.services = tempServices
         self.navigationController?.popToViewController((self.navigationController?.viewControllers[1])!, animated: true)
-        targetViewController!.ServiceSelectTableView.reloadData()
+        targetViewController!.ServiceSelectTableView.reloadSections(NSIndexSet(index: self.sectionForSelectionViewController!), withRowAnimation: UITableViewRowAnimation.Right)
     }
 }

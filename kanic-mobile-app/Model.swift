@@ -9,12 +9,12 @@
 import UIKit
 
 class Model: NSObject {
-    var id: Int? = nil
-    var make: String? = nil
-    var makeID: Int? = nil
-    var name: String? = nil
-    var niceName: String? = nil
-    var year: Int? = nil
+    var id: Int?
+    var make: String?
+    var makeID: Int?
+    var name: String?
+    var niceName: String?
+    var year: Int?
     
     init(ModelDictionary: NSDictionary) {
         id = ModelDictionary["id"] as? Int

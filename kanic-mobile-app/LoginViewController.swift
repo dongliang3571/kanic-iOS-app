@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
         navController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]  // Title color
         
         // Tab Bar Item 2
-        customTabBarItem = UITabBarItem(title: "Service", image: UIImage(named: "profile_w")?.imageWithRenderingMode(UIImageRenderingMode.Automatic), selectedImage: UIImage(named: "profile_b"))
+        customTabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile_w")?.imageWithRenderingMode(UIImageRenderingMode.Automatic), selectedImage: UIImage(named: "profile_b"))
         targetController?.viewControllers![1].tabBarItem = customTabBarItem
     }
     

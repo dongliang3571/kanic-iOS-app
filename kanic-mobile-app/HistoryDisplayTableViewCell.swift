@@ -1,20 +1,22 @@
 //
-//  ServiceTableViewCell.swift
+//  HistoryDisplayTableViewCell.swift
 //  kanic-mobile-app
 //
-//  Created by dong liang on 7/4/16.
+//  Created by dong liang on 7/11/16.
 //  Copyright © 2016 kanic. All rights reserved.
 //
 
 import UIKit
 
-class ServiceTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var ServiceLabel: UILabel!
+class HistoryDisplayTableViewCell: UITableViewCell {
     
-    var service: Service? {
+    @IBOutlet weak var serviceNameLabel: UILabel!
+    @IBOutlet weak var mechanicNameLabel: UILabel!
+    
+    var request: Request? {
         didSet {
-            self.ServiceLabel.text = self.service?.name!
+            serviceNameLabel.text = request?.service
+            mechanicNameLabel.text = request?.mechanic
         }
     }
     

@@ -12,10 +12,10 @@ class ModelTableViewController: UIViewController {
 
     @IBOutlet weak var ModelTableView: UITableView!
     
-    var years: Year? = nil
-    var yearInt: Int? = nil
-    var models: [Model]? = nil
-    var sectionForSelectionViewController: Int? = nil
+    var years: Year?
+    var yearInt: Int?
+    var models: [Model]?
+    var sectionForSelectionViewController: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +25,13 @@ class ModelTableViewController: UIViewController {
         self.ModelTableView.rowHeight = UITableViewAutomaticDimension
         self.title = "Car Model"
         
-        let parameters = ["make":  "\((self.years?.niceName)!)", "year": "\(self.yearInt!)"]
+        let parameters = ["format": "json", "make":  "\((self.years?.niceName)!)", "year": "\(self.yearInt!)"]
         let headers = ["Authorization": "JWT \(KanicClient.sharedInstance.AccessToken!)"]
-        KanicClient.sharedInstance.getDataFromAPI("models", parameters: parameters, headers: headers, success: { (json) in
+        KanicClient.sharedInstance.getDataFromAPI(URLs.modelList, parameters: parameters, headers: headers, success: { (json) in
             self.models = Model.serializeData(json)
             self.ModelTableView.reloadData()
             }, failure: {
-                print("fails to get model data")
+                print("fails to get model data in ModelTableViewController")
         })
         
     }

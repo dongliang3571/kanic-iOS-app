@@ -9,5 +9,46 @@
 import UIKit
 
 class Request: NSObject {
-
+    var id: Int?
+    var carOwner: String?
+    var mechanic: String?
+    var location: String?
+    var scheduledTime: String?
+    var car: String?
+    var carID: Int?
+    var service: String?
+    var serviceID: Int?
+    var status: Int?
+    var extraInfo: String?
+    
+    init(RequestDictionary: NSDictionary) {
+        self.id = RequestDictionary["id"] as? Int
+        self.carOwner = RequestDictionary["car_owner"]!["username"] as? String
+        
+        if RequestDictionary["mechanic"] as! NSObject != NSNull() {
+            let menchanicFirstName = RequestDictionary["mechanic"]!["user"]!!["first_name"] as? String
+            let menchanicLastName = RequestDictionary["mechanic"]!["user"]!!["last_name"] as? String
+            self.mechanic = "\(menchanicFirstName!) \(menchanicLastName!)"
+        } else {
+            self.mechanic = "TBA"
+        }
+        
+        self.location = RequestDictionary["location"] as? String
+        self.scheduledTime = RequestDictionary["scheduled_time"] as? String
+        self.car = RequestDictionary["car"]!["name"] as? String
+        self.carID = RequestDictionary["car"]!["id"] as? Int
+        self.service = RequestDictionary["service"]!["name"] as? String
+        self.serviceID = RequestDictionary["service"]!["id"] as? Int
+        self.status = RequestDictionary["status"] as? Int
+        self.extraInfo = RequestDictionary["extra_info"] as? String
+    }
+    
+    class func serializeData(RequestArray: [NSDictionary]) -> [Request] {
+        var requests = [Request]()
+        for request in RequestArray {
+            let requestSerialized = Request(RequestDictionary: request)
+            requests.append(requestSerialized)
+        }
+        return requests
+    }
 }

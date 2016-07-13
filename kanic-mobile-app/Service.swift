@@ -9,11 +9,11 @@
 import UIKit
 
 class Service: NSObject {
-    var id: Int? = nil
-    var name: String? = nil
-    var part: String? = nil
-    var detail: String? = nil
-    var price: Float? = nil
+    var id: Int?
+    var name: String?
+    var part: String?
+    var detail: String?
+    var price: Float?
     
     init(ServiceDictionary: NSDictionary) {
         id = ServiceDictionary["id"] as? Int

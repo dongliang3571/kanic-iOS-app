@@ -9,9 +9,9 @@
 import UIKit
 
 class Make: NSObject {
-    var id: Int? = nil
-    var name: String? = nil
-    var niceName: String? = nil
+    var id: Int?
+    var name: String?
+    var niceName: String?
     
     init(MakeDictionary: NSDictionary) {
         id = MakeDictionary["id"] as? Int

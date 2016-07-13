@@ -9,10 +9,10 @@
 import UIKit
 
 class Year: NSObject {
-    var makeID: Int? = nil
-    var name: String? = nil
-    var niceName: String? = nil
-    var year: [Int]? = nil
+    var makeID: Int?
+    var name: String?
+    var niceName: String?
+    var year: [Int]?
     
     init(YearDictionary: NSDictionary) {
         makeID = YearDictionary["make_id"] as? Int

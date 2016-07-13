@@ -10,7 +10,7 @@ import UIKit
 
 class ServiceSelectTableViewCell: UITableViewCell {
     
-    var reusedRowLabel: UILabel? = nil
+    var datePicker: UIDatePicker?
     
     override func awakeFromNib() {
         super.awakeFromNib()

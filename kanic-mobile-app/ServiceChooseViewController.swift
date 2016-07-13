@@ -12,8 +12,8 @@ class ServiceChooseViewController: UIViewController {
 
     @IBOutlet weak var ServiceTableView: UITableView!
     
-    var services: [Service]? = nil
-    var sectionForSelectionViewController: Int? = nil
+    var services: [Service]?
+    var sectionForSelectionViewController: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,7 @@ class ServiceChooseViewController: UIViewController {
         self.ServiceTableView.delegate = self
         self.ServiceTableView.dataSource = self
         self.ServiceTableView.rowHeight = UITableViewAutomaticDimension
+        self.ServiceTableView.tableFooterView = UIView()
         self.title = "Choose services"
         
         let headers = ["Authorization": "JWT \(KanicClient.sharedInstance.AccessToken!)"]

@@ -12,11 +12,11 @@ class YearTableViewController: UIViewController {
     
     @IBOutlet weak var YearTableView: UITableView!
     
-    var make: Make? = nil
-    var model: Model? = nil
-    var years: Year? = nil
-    var yearInt: [Int]? = nil
-    var sectionForSelectionViewController: Int? = nil
+    var make: Make?
+    var model: Model?
+    var years: Year?
+    var yearInt: [Int]?
+    var sectionForSelectionViewController: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +28,12 @@ class YearTableViewController: UIViewController {
         
         let parameters = ["make": "\((self.make?.niceName)!)"]
         let headers = ["Authorization": "JWT \(KanicClient.sharedInstance.AccessToken!)"]
-        KanicClient.sharedInstance.getDataFromAPI("years", parameters: parameters, headers: headers, success: { (json) in
+        KanicClient.sharedInstance.getDataFromAPI(URLs.yearList, parameters: parameters, headers: headers, success: { (json) in
             self.years = Year.serializeData(json)[0]
             self.yearInt = self.years!.year
             self.YearTableView.reloadData()
             }, failure: {
-                print("failed to get year data")
+                print("failed to get year data in YearTbaleViewController")
         })
         
     }

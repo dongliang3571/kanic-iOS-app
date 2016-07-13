@@ -24,7 +24,7 @@ class KanicClient: NSObject {
         }
         
         dispatch_once(&Static.token) {
-            Static.instance = KanicClient(baseURL: NSURL(string: "http://192.168.95.8:8000/api-beta/")!)
+            Static.instance = KanicClient(baseURL: NSURL(string: "http://127.0.0.1:8000/api-beta/")!)
         }
         return Static.instance!
     }
@@ -33,6 +33,16 @@ class KanicClient: NSObject {
         self.baseURL = baseURL
     }
     
+    /*
+    // MARK: - Fetching Token
+     
+    // Using this method to fetch token for any user.
+    // - Parameter path: Api url
+    // - Parameter username: Username
+    // - Parameter password: Password
+    // - Parameter success: callback function when request succeeds
+    // - Parameter failure: callback function when request fails
+    */
     func fetchToken(path: String, username: String, password: String, success: ()->(), failure: ()->()) {
         let targetURL = self.baseURL?.URLByAppendingPathComponent(path)
         let parameters = ["username": username, "password": password]
@@ -103,6 +113,55 @@ class KanicClient: NSObject {
         }
     }
     
+    /*
+     // MARK: - make a service request to server
+     
+     // Using this method to fetch token for any user.
+     // - Parameter path: api url
+     // - Parameter headers: Headers for the http request, eg. User token
+     // - Parameter request: The service request
+     // - Parameter success: callback function when request succeeds
+     // - Parameter failure: callback function when request fails
+     */
+    func makeServiceRequest(path: String, parameters: [String: AnyObject]? = nil, headers: [String: String]? = nil, success: (NSDictionary)->(), failure: ()->()) {
+        let targetURL = self.baseURL?.URLByAppendingPathComponent(path)
+//        let serviceRequest = parameters!["request"] as? Request
+//        let newParams: [String: String] = [
+//            "location": (serviceRequest?.location)!,
+//            "scheduled_time": (serviceRequest?.scheduledTime)!,
+//            "car": "\(serviceRequest?.carID!)",
+//            "service": "\(serviceRequest?.serviceID!)",
+//            "status": "0"
+//        ]
+        let DataRequest = Alamofire.request(.POST, targetURL!, parameters: parameters!, headers: headers)
+        
+        DataRequest.responseJSON { (response) in
+            switch response.result {
+            case .Success:
+                let statusCode = response.response?.statusCode
+                
+                if let json = response.result.value as? NSDictionary {
+                    switch statusCode! {
+                    case 200...299:
+                        success(json)
+                    case 400...499:
+                        print("JSON: \(json)")
+                        print("Request error")
+                    case 500...599:
+                        print("JSON: \(json)")
+                        print("Server error")
+                    default:
+                        print("JSON: \(json)")
+                        print("default error")
+                    }
+                } else {
+                    print("errors happened when trying to fetch data(outside Alamofire)")
+                }
+            case .Failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 //    func getModelData(path: String, parameters: [String: AnyObject]? = nil, headers: [String: String]? = nil, success: ([NSDictionary])->(), failure: ()->()) {
 //        let targetURL = self.baseURL?.URLByAppendingPathComponent(path)
 //        let DataRequest = Alamofire.request(.GET, targetURL!, parameters: parameters, headers: headers)

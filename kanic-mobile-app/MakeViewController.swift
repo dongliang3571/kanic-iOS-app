@@ -12,8 +12,8 @@ class MakeViewController: UIViewController {
 
     @IBOutlet weak var makeTableView: UITableView!
     
-    var makes: [Make]? = nil
-    var sectionForSelectionViewController: Int? = nil
+    var makes: [Make]?
+    var sectionForSelectionViewController: Int?
     
     
     override func viewDidLoad() {
@@ -24,15 +24,16 @@ class MakeViewController: UIViewController {
         self.makeTableView.rowHeight = UITableViewAutomaticDimension
         self.title = "Car Make"
         
+        let parameters = ["format": "json"]
         let headers = ["Authorization": "JWT \(KanicClient.sharedInstance.AccessToken!)"]
-        KanicClient.sharedInstance.getDataFromAPI("makes", headers: headers, success: {
+        KanicClient.sharedInstance.getDataFromAPI(URLs.makeList, parameters: parameters, headers: headers, success: {
             (json) in
             self.makes = Make.serializeData(json)
 //            self.makeTableView.tableFooterView = UIView()
             self.makeTableView.reloadData()
             
             }, failure: {
-                print("These is error")
+                print("These is error in MakeViewController")
         })
     }
 

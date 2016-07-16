@@ -7,5 +7,8 @@ target 'kanic-mobile-app' do
     pod 'Alamofire', '~> 3.4.1'
     pod 'SwiftyJSON', '~> 2.3.2'
     pod 'KeychainAccess', '~> 2.3.5'
+    pod 'GoogleMaps'
+    pod 'MBProgressHUD', '~> 0.9.2'
+
 end
 

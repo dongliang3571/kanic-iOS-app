@@ -12,11 +12,17 @@ class HistoryDisplayTableViewCell: UITableViewCell {
     
     @IBOutlet weak var serviceNameLabel: UILabel!
     @IBOutlet weak var mechanicNameLabel: UILabel!
+    @IBOutlet weak var carNameLabel: UILabel!
     
     var request: Request? {
         didSet {
             serviceNameLabel.text = request?.service
-            mechanicNameLabel.text = request?.mechanic
+            if request?.mechanic != nil {
+                mechanicNameLabel.text = request?.mechanic
+            } else {
+                mechanicNameLabel.text = "To be determined"
+            }
+            carNameLabel.text = request?.car
         }
     }
     

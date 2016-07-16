@@ -20,17 +20,18 @@ class Request: NSObject {
     var serviceID: Int?
     var status: Int?
     var extraInfo: String?
+    var createAt: String?
     
     init(RequestDictionary: NSDictionary) {
         self.id = RequestDictionary["id"] as? Int
         self.carOwner = RequestDictionary["car_owner"]!["username"] as? String
         
         if RequestDictionary["mechanic"] as! NSObject != NSNull() {
-            let menchanicFirstName = RequestDictionary["mechanic"]!["user"]!!["first_name"] as? String
-            let menchanicLastName = RequestDictionary["mechanic"]!["user"]!!["last_name"] as? String
+            let menchanicFirstName = RequestDictionary["mechanic"]!["first_name"] as? String
+            let menchanicLastName = RequestDictionary["mechanic"]!["last_name"] as? String
             self.mechanic = "\(menchanicFirstName!) \(menchanicLastName!)"
         } else {
-            self.mechanic = "TBA"
+            self.mechanic = nil
         }
         
         self.location = RequestDictionary["location"] as? String
@@ -41,6 +42,7 @@ class Request: NSObject {
         self.serviceID = RequestDictionary["service"]!["id"] as? Int
         self.status = RequestDictionary["status"] as? Int
         self.extraInfo = RequestDictionary["extra_info"] as? String
+        self.createAt = RequestDictionary["createAt"] as? String
     }
     
     class func serializeData(RequestArray: [NSDictionary]) -> [Request] {

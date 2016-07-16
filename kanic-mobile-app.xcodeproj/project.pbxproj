@@ -30,6 +30,8 @@
 		3B32B75F1D11A5D900067ED9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32B75E1D11A5D900067ED9 /* ViewController.swift */; };
 		3B32B7621D11A5D900067ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B32B7601D11A5D900067ED9 /* Main.storyboard */; };
 		3B32B7671D11A5D900067ED9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B32B7651D11A5D900067ED9 /* LaunchScreen.storyboard */; };
+		3B485A261D3985E30006D3FC /* ConfirmRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B485A251D3985E30006D3FC /* ConfirmRequestViewController.swift */; };
+		3B485A2A1D39AC610006D3FC /* ThankYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B485A291D39AC610006D3FC /* ThankYouViewController.swift */; };
 		3B49AB391D245FD100A19CC1 /* KanicClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49AB381D245FD100A19CC1 /* KanicClient.swift */; };
 		3B7243F51D170B83006637E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7243F41D170B83006637E0 /* LoginViewController.swift */; };
 		3B957D2C1D33F37600E193C5 /* HistoryDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B957D2B1D33F37600E193C5 /* HistoryDisplayViewController.swift */; };
@@ -65,6 +67,8 @@
 		3B32B7611D11A5D900067ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B32B7661D11A5D900067ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B32B7681D11A5D900067ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B485A251D3985E30006D3FC /* ConfirmRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmRequestViewController.swift; sourceTree = "<group>"; };
+		3B485A291D39AC610006D3FC /* ThankYouViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThankYouViewController.swift; sourceTree = "<group>"; };
 		3B49AB381D245FD100A19CC1 /* KanicClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanicClient.swift; sourceTree = "<group>"; };
 		3B7243F41D170B83006637E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3B957D2B1D33F37600E193C5 /* HistoryDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				3B1F76801D2B8790001B267D /* ChooseTime */,
 				3B1F76811D2B8798001B267D /* ChooseLocation */,
 				3B1F76751D2A3488001B267D /* Cells */,
+				3B485A221D3985650006D3FC /* ConfirmRequest */,
 				3B1F76581D28823C001B267D /* ServiceTabViewController.swift */,
 				3B1F766B1D298D8F001B267D /* ServiceSelectViewController.swift */,
 				3B957D2B1D33F37600E193C5 /* HistoryDisplayViewController.swift */,
@@ -229,6 +234,15 @@
 			path = "kanic-mobile-app";
 			sourceTree = "<group>";
 		};
+		3B485A221D3985650006D3FC /* ConfirmRequest */ = {
+			isa = PBXGroup;
+			children = (
+				3B485A251D3985E30006D3FC /* ConfirmRequestViewController.swift */,
+				3B485A291D39AC610006D3FC /* ThankYouViewController.swift */,
+			);
+			name = ConfirmRequest;
+			sourceTree = "<group>";
+		};
 		3B49AB361D2374F500A19CC1 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,12 +272,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B32B76B1D11A5D900067ED9 /* Build configuration list for PBXNativeTarget "kanic-mobile-app" */;
 			buildPhases = (
-				98C3681F7F4091B0E3B22AA9 /* Check Pods Manifest.lock */,
+				98C3681F7F4091B0E3B22AA9 /* [CP] Check Pods Manifest.lock */,
 				3B32B7551D11A5D900067ED9 /* Sources */,
 				3B32B7561D11A5D900067ED9 /* Frameworks */,
 				3B32B7571D11A5D900067ED9 /* Resources */,
-				D8F27260413B8915BABB1DC1 /* Embed Pods Frameworks */,
-				8CC82A5F10B7F9E70D1409CC /* Copy Pods Resources */,
+				D8F27260413B8915BABB1DC1 /* [CP] Embed Pods Frameworks */,
+				8CC82A5F10B7F9E70D1409CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -322,14 +336,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8CC82A5F10B7F9E70D1409CC /* Copy Pods Resources */ = {
+		8CC82A5F10B7F9E70D1409CC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,29 +351,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kanic-mobile-app/Pods-kanic-mobile-app-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		98C3681F7F4091B0E3B22AA9 /* Check Pods Manifest.lock */ = {
+		98C3681F7F4091B0E3B22AA9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D8F27260413B8915BABB1DC1 /* Embed Pods Frameworks */ = {
+		D8F27260413B8915BABB1DC1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B485A2A1D39AC610006D3FC /* ThankYouViewController.swift in Sources */,
 				3B1F765B1D28A0FF001B267D /* MakeViewController.swift in Sources */,
 				3B98A7381D2D68430061B3F1 /* Request.swift in Sources */,
 				3B1F76681D297332001B267D /* ModelTableViewController.swift in Sources */,
@@ -397,6 +412,7 @@
 				3B32B75D1D11A5D900067ED9 /* AppDelegate.swift in Sources */,
 				3B1F76611D28D87D001B267D /* Model.swift in Sources */,
 				3B1F765F1D28D7DD001B267D /* YearTableViewController.swift in Sources */,
+				3B485A261D3985E30006D3FC /* ConfirmRequestViewController.swift in Sources */,
 				3B1F765D1D28A82A001B267D /* MakeTableViewCell.swift in Sources */,
 				3B957D2C1D33F37600E193C5 /* HistoryDisplayViewController.swift in Sources */,
 				3B1F76661D297311001B267D /* ModelTableViewCell.swift in Sources */,

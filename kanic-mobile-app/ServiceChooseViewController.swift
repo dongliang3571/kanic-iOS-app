@@ -17,7 +17,8 @@ class ServiceChooseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UISetUp()
+        
         self.ServiceTableView.delegate = self
         self.ServiceTableView.dataSource = self
         self.ServiceTableView.rowHeight = UITableViewAutomaticDimension
@@ -32,7 +33,12 @@ class ServiceChooseViewController: UIViewController {
                 print("failed to get service data")
         })
     }
-
+    
+    func UISetUp() {
+        // Main view background color
+        self.view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.0)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,6 +76,10 @@ extension ServiceChooseViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let targetViewController = self.navigationController?.viewControllers[1] as? ServiceSelectViewController
+        
+        // MARK: This snippet is for when user can request more than one service
+        /*
+         
         var tempServices: [Service]? = targetViewController?.services
         
         // Check if services in ServiceSelecViewController is empty
@@ -91,6 +101,9 @@ extension ServiceChooseViewController: UITableViewDataSource, UITableViewDelegat
             tempServices?.append(self.services![indexPath.row])
         }
         targetViewController?.services = tempServices
+        */
+        
+        targetViewController?.service = self.services![indexPath.row]
         self.navigationController?.popToViewController((self.navigationController?.viewControllers[1])!, animated: true)
         targetViewController!.ServiceSelectTableView.reloadSections(NSIndexSet(index: self.sectionForSelectionViewController!), withRowAnimation: UITableViewRowAnimation.Right)
     }

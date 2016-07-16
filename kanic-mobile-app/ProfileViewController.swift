@@ -14,13 +14,24 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UISetUp()
         
-        logOutButton.addTarget(self, action: #selector(logOutAction), forControlEvents: UIControlEvents.TouchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func UISetUp() {
+        // Set up log out button
+        self.logOutButton.backgroundColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0)
+        self.logOutButton.layer.cornerRadius = 5
+        self.logOutButton.layer.borderWidth = 1
+        self.logOutButton.layer.borderColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0).CGColor
+        self.logOutButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.logOutButton.setTitle("Log out", forState: UIControlState.Normal)
+        self.logOutButton.addTarget(self, action: #selector(logOutAction), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     func logOutAction(sender: AnyObject) {

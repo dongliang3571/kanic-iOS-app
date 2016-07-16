@@ -18,20 +18,37 @@ class RequestDetailViewController: UIViewController {
     @IBOutlet weak var serviceLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var extraInfoLabel: UILabel!
+    @IBOutlet weak var createAtLabel: UILabel!
     
     var request: Request? 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UISetUp()
         carOwnerLabel.text = request?.carOwner!
-        mechanicLabel.text = request?.mechanic!
+        
+        if let mechanicName = request?.mechanic {
+            mechanicLabel.text = mechanicName
+        } else {
+            mechanicLabel.text = "To be determined"
+        }
         locationLabel.text = request?.location!
         scheduledTimeLabel.text = request?.scheduledTime!
         carLabel.text = request?.car!
         serviceLabel.text = request?.service!
-        statusLabel.text = "\(request?.status!)"
-        extraInfoLabel.text = request?.extraInfo!
+        statusLabel.text = "\((request?.status)!)"
+        if let extraInfo = request?.extraInfo {
+            extraInfoLabel.text = extraInfo
+        } else {
+            extraInfoLabel.text = "None"
+        }
+        createAtLabel.text = request?.createAt!
         // Do any additional setup after loading the view.
+    }
+    
+    func UISetUp() {
+        // Main view background color
+        self.view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.0)
     }
 
     override func didReceiveMemoryWarning() {

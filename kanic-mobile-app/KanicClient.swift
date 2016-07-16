@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import KeychainAccess
+import MBProgressHUD
 
 class KanicClient: NSObject {
 
@@ -43,28 +44,29 @@ class KanicClient: NSObject {
     // - Parameter success: callback function when request succeeds
     // - Parameter failure: callback function when request fails
     */
-    func fetchToken(path: String, username: String, password: String, success: ()->(), failure: ()->()) {
+    func fetchToken(path: String, username: String, password: String, success: ()->(), failure: (error1: NSError?, error2: NSDictionary? )->()) {
         let targetURL = self.baseURL?.URLByAppendingPathComponent(path)
         let parameters = ["username": username, "password": password]
         let TokenRequest = Alamofire.request(.POST, targetURL!, parameters: parameters)
         
+        // Handling response with JSON format
         TokenRequest.responseJSON { response in
             switch response.result {
             case .Success:
                 let statusCode = response.response?.statusCode
                 
-                if let value = response.result.value {
-                    let json = JSON(value)
-                    
+                if let json = response.result.value as? NSDictionary{
+
                     switch statusCode! {
                     case 200...299:
-                        self.AccessToken = json["token"].string
+                        self.AccessToken = json["token"] as? String
+                        print(self.AccessToken)
                         self.keychain["AccessToken"] = self.AccessToken
                         success()
                     case 400...499:
                         print("JSON: \(json)")
                         print("Request error")
-                        failure()
+                        failure(error1: nil, error2: json)
                     case 500...599:
                         print("JSON: \(json)")
                         print("Server error")
@@ -73,9 +75,10 @@ class KanicClient: NSObject {
                         print("default error")
                     }
                 }
-                
             case .Failure(let error):
+                print("Cutom error when create service request in KanicClient in Failure case")
                 print(error.localizedDescription)
+                failure(error1: error, error2: nil)
             }
         }
     }
@@ -106,9 +109,10 @@ class KanicClient: NSObject {
                 } else {
                     print("errors happened when trying to fetch data")
                 }
-                
             case .Failure(let error):
+                print("Cutom error when create service request in KanicClient")
                 print(error.localizedDescription)
+                failure()
             }
         }
     }
@@ -125,14 +129,6 @@ class KanicClient: NSObject {
      */
     func makeServiceRequest(path: String, parameters: [String: AnyObject]? = nil, headers: [String: String]? = nil, success: (NSDictionary)->(), failure: ()->()) {
         let targetURL = self.baseURL?.URLByAppendingPathComponent(path)
-//        let serviceRequest = parameters!["request"] as? Request
-//        let newParams: [String: String] = [
-//            "location": (serviceRequest?.location)!,
-//            "scheduled_time": (serviceRequest?.scheduledTime)!,
-//            "car": "\(serviceRequest?.carID!)",
-//            "service": "\(serviceRequest?.serviceID!)",
-//            "status": "0"
-//        ]
         let DataRequest = Alamofire.request(.POST, targetURL!, parameters: parameters!, headers: headers)
         
         DataRequest.responseJSON { (response) in
@@ -162,14 +158,5 @@ class KanicClient: NSObject {
             }
         }
     }
-//    func getModelData(path: String, parameters: [String: AnyObject]? = nil, headers: [String: String]? = nil, success: ([NSDictionary])->(), failure: ()->()) {
-//        let targetURL = self.baseURL?.URLByAppendingPathComponent(path)
-//        let DataRequest = Alamofire.request(.GET, targetURL!, parameters: parameters, headers: headers)
-//        
-//        
-//    }
-//    
-    
-    
 
 }

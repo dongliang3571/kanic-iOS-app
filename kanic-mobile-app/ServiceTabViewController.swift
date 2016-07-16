@@ -31,7 +31,10 @@ class ServiceTabViewController: UIViewController {
         self.performSegueWithIdentifier("historySegue", sender: self)
     }
     
-    func UISetUp() {        
+    func UISetUp() {
+        // Main view background color
+        self.view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.0)
+        
         // set up for button
         // request button
         self.requestButton.backgroundColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0)

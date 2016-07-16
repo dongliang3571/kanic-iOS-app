@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import KeychainAccess
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
     
@@ -23,11 +24,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UISetUp()
         
-        usernameLabel.text = "diana"
+        usernameLabel.text = "dong"
         passwordLabel.text = "123"
         sharedInstance = KanicClient.sharedInstance
-        signInButton.addTarget(self, action: #selector(loginAction), forControlEvents: UIControlEvents.TouchUpInside)
+        
     }
     
     
@@ -38,15 +40,43 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func UISetUp() {
+        // Set up main view color
+        self.view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.0)
+        
+        // Set up sign in button
+        self.signInButton.backgroundColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0)
+        self.signInButton.layer.cornerRadius = 5
+        self.signInButton.layer.borderWidth = 1
+        self.signInButton.layer.borderColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0).CGColor
+        self.signInButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.signInButton.setTitle("Sign in", forState: UIControlState.Normal)
+        signInButton.addTarget(self, action: #selector(loginAction), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
     
     func loginAction(sender: AnyObject) {
         let username = usernameLabel.text
         let password = passwordLabel.text
         
+        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        hud.labelText = "Sending request..."
+        
         self.sharedInstance?.fetchToken("auth/token", username: username!, password: password!, success: {
             self.performSegueWithIdentifier("loginSegue", sender: self)
-            }, failure: {
-                print("username or password is not correct")
+            }, failure: { (error1, error2) in
+                if let error1 = error1 {
+                    print(error1)
+                    let alert = UIAlertController(title: "Error", message: "An unexpected error happened", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Try again", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                } else if let error2 = error2 {
+                    let alert = UIAlertController(title: "Invalid Credential", message: "Your username or password does not match", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Try again", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                }
         })
     }
     

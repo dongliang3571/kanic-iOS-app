@@ -13,10 +13,10 @@ class HistoryDisplayViewController: UIViewController {
     @IBOutlet weak var HistoryTableView: UITableView!
     
     var requests:[Request]?
-    var request: Request?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UISetUp()
         self.HistoryTableView.delegate = self
         self.HistoryTableView.dataSource = self
 //        self.makeTableView.estimatedRowHeight = 4
@@ -24,16 +24,22 @@ class HistoryDisplayViewController: UIViewController {
         self.title = "History"
         
         let headers = ["Authorization": "JWT \(KanicClient.sharedInstance.AccessToken!)"]
-        KanicClient.sharedInstance.getDataFromAPI("requests/user", headers: headers, success: {
+        KanicClient.sharedInstance.getDataFromAPI(URLs.requestForCurrentUser, headers: headers, success: {
             (json) in
 //            print(json[0]["mechanic"]! as! NSObject == NSNull())
+            print("im making request in HostoryDisplayVC")
             self.requests = Request.serializeData(json)
 //          self.HistoryTableView.tableFooterView = UIView()
             self.HistoryTableView.reloadData()
             
             }, failure: {
-                print("These is error")
+                print("Error happen while fetching all current user's requests ")
         })
+    }
+    
+    func UISetUp() {
+        // Main view background color
+        self.view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,8 +48,10 @@ class HistoryDisplayViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cell = sender as! HistoryDisplayTableViewCell
+        let indexPath = HistoryTableView.indexPathForCell(cell)
         let targetVC = segue.destinationViewController as? RequestDetailViewController
-        targetVC?.request = self.request
+        targetVC?.request = requests![indexPath!.row]
     }
 }
 
@@ -59,12 +67,11 @@ extension HistoryDisplayViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell", forIndexPath: indexPath) as! HistoryDisplayTableViewCell
         cell.request = self.requests![indexPath.row]
-        self.request = self.requests![indexPath.row]
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("requestDetailSegue", sender: self)
-    }
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        self.performSegueWithIdentifier("requestDetailSegue", sender: self)
+//    }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class ServiceSelectViewController: UIViewController {
 
@@ -28,9 +29,13 @@ class ServiceSelectViewController: UIViewController {
     
     // Track user current data
     var model: Model?
-    var services: [Service]?
-    var dateTime: String?
+    var service: Service?
+    var scheduledTime: String?
+    var location: String?
+    
+    // Trakc which section user is tapping on
     var currentSection: Int?
+    var parameters: [String: AnyObject]?
     
     // Number of row for each section
     var numberRows = [1, 1, 1, 1]
@@ -53,13 +58,19 @@ class ServiceSelectViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    
-        if segue.identifier == "vehicleSegue" {
+        
+        switch segue.identifier! {
+        case "vehicleSegue":
             let destinationVC = segue.destinationViewController as! MakeViewController
             destinationVC.sectionForSelectionViewController = currentSection
-        } else if segue.identifier == "serviceSegue" {
+        case "serviceSegue":
             let destinationVC = segue.destinationViewController as! ServiceChooseViewController
             destinationVC.sectionForSelectionViewController = currentSection
+        case "confirmRequestSegue":
+            let destinationVC = segue.destinationViewController as! ConfirmRequestViewController
+            destinationVC.parameters = self.parameters
+        default:
+            break
         }
         let backItem = UIBarButtonItem()
         backItem.title = ""
@@ -78,6 +89,8 @@ class ServiceSelectViewController: UIViewController {
     
     //  UI setup
     func UISetUp() {
+        // Main view background color
+        self.view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.0)
         // Setting up attribute for Next Button
         self.NextButton.backgroundColor = UIColor(red:0.22, green:0.72, blue:0.62, alpha:1.0)
         self.NextButton.setTitle("Next", forState: UIControlState.Normal)
@@ -87,13 +100,20 @@ class ServiceSelectViewController: UIViewController {
     
     //  Callback function when nextButton is pressed, this will send a service request
     func buttonPressed(sender: UIButton) {
-        let headers = ["Authorization": "JWT \(KanicClient.sharedInstance.AccessToken!)"]
-        let diction = ["location": "manhattan", "scheduled_time": "2018-11-02T03:01:00Z", "car": 1, "service": 5, "status": 0]
-        KanicClient.sharedInstance.makeServiceRequest(URLs.requestCreate, parameters: diction, headers: headers, success: { (json) in
-            print(json)
-            }, failure: {
-                print("error happened")
-        })
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        if self.model != nil && self.service != nil && self.scheduledTime != nil && self.location != nil {
+            self.parameters = [
+                "location": self.location!,
+                "scheduled_time": self.scheduledTime!,
+                "car": (self.model!.id)!,
+                "service": (self.service!.id)!
+            ]
+            self.performSegueWithIdentifier("confirmRequestSegue", sender: self)
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+        } else {
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            print("Need more information for this request in ServiceSelectViewController")
+        }
     }
     
     //  Reading default value right after viewDidLoad, car, service, time and location will be loaded from defaults
@@ -112,7 +132,13 @@ class ServiceSelectViewController: UIViewController {
         cell?.detailTextLabel?.text = dateString
         
         //  Save time string for making request
-        self.dateTime = "\(sender.date)"
+        customDateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        let scheduledTimeString = customDateFormatter.stringFromDate(sender.date)
+        self.scheduledTime = scheduledTimeString
+    }
+    
+    func datePickerBegubEditing() {
+        print("haha")
     }
 }
 
@@ -128,23 +154,41 @@ extension ServiceSelectViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Reuse cell with identifier
-        let cell = tableView.dequeueReusableCellWithIdentifier("ServiceSelectCell", forIndexPath: indexPath) as! ServiceSelectTableViewCell
-        
+//        let cell = tableView.dequeueReusableCellWithIdentifier("ServiceSelectCell", forIndexPath: indexPath) as! ServiceSelectTableViewCell
         // Switch statement for different sections
         switch indexPath.section {
         case 0 where self.model != nil:
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "ModelSelectCell")
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator   // Set cell accessory type to DisclosureIndicator, which is an arrow on the right end of the cell
             cell.textLabel!.text = staticText.rowText[indexPath.section][indexPath.row]
             cell.detailTextLabel!.text = "\(model!.make!) \(model!.name!) \(model!.year!)"
-        case 1 where self.services != nil:
+            return cell
+        case 1 where self.service != nil:
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "ModelSelectCell")
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator   // Set cell accessory type to DisclosureIndicator, which is an arrow on the right end of the cell
             cell.textLabel!.text = staticText.rowText[indexPath.section][indexPath.row]
-            cell.detailTextLabel!.text = services![0].name
+//            cell.detailTextLabel!.text = services![0].name //  For more than one service
+            cell.detailTextLabel!.text = service!.name
+            return cell
+        case 1:
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "ModelSelectCell")
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator   // Set cell accessory type to DisclosureIndicator, which is an arrow on the right end of the cell
+            cell.textLabel!.text = staticText.rowText[indexPath.section][indexPath.row]
+            cell.detailTextLabel!.text = staticText.cellDetailText[indexPath.section][indexPath.row]
+            return cell
         case 2 where indexPath.row == 0:
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "DateTimeSelectCell")
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.accessoryType = UITableViewCellAccessoryType.None   // Set cell accessory type to None so that no accessory is going to show
             cell.textLabel!.text = staticText.rowText[indexPath.section][indexPath.row]
             cell.detailTextLabel!.text = staticText.cellDetailText[indexPath.section][indexPath.row]
+            return cell
         case 2 where indexPath.row == 1:
+            let cell = ServiceSelectTableView.dequeueReusableCellWithIdentifier("DateTimeSelectCell", forIndexPath: indexPath) as! ServiceSelectTableViewCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.accessoryType = UITableViewCellAccessoryType.None   // Set cell accessory type to None so that no accessory is going to show
             
             //  time picker
@@ -152,24 +196,69 @@ extension ServiceSelectViewController: UITableViewDataSource, UITableViewDelegat
             let width = cell.frame.width    //  Get height of the cell
             if cell.datePicker == nil {
                 cell.datePicker = UIDatePicker(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: width, height: height))
+                
+                // Once the datepicker is initialized, we will set the upper row's detail label to today's date
+                let newIndexPath = NSIndexPath(forRow: 0, inSection: 2)
+                let upCell = self.ServiceSelectTableView.cellForRowAtIndexPath(newIndexPath)
+                let customDateFormatter = NSDateFormatter()
+                customDateFormatter.dateFormat = "eee, MM/dd/yy, HH:mm a"
+                let dateString = customDateFormatter.stringFromDate(cell.datePicker!.date)
+                upCell?.detailTextLabel?.text = dateString
+                
+                customDateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+                let scheduledTimeString = customDateFormatter.stringFromDate(cell.datePicker!.date)
+                if self.scheduledTime == nil {
+                    self.scheduledTime = scheduledTimeString
+                }
             }
+            
+            
             cell.textLabel?.text = ""
             cell.detailTextLabel?.text = ""
             cell.datePicker!.addTarget(self, action: #selector(self.datePickerChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)    //  Added callback action to the time picker
             cell.addSubview(cell.datePicker!)
-        default:
+            return cell
+        case 2:
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "DateTimeSelectCell")
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator   // Set cell accessory type to DisclosureIndicator, which is an arrow on the right end of the cell
+            cell.textLabel!.text = staticText.rowText[indexPath.section][indexPath.row]
+            //            cell.detailTextLabel!.text = services![0].name //  For more than one service
+            cell.detailTextLabel!.text = service!.name
+            return cell
+        case 3 where self.location != nil:
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "LocationSelectCell")
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator   // Set cell accessory type to DisclosureIndicator, which is an arrow on the right end of the cell
+            cell.textLabel!.text = staticText.rowText[indexPath.section][indexPath.row]
+            cell.detailTextLabel!.text = self.location
+            return cell
+        case 3:
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "LocationSelectCell")
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator   // Set cell accessory type to DisclosureIndicator, which is an arrow on the right end of the cell
             cell.textLabel!.text = staticText.rowText[indexPath.section][indexPath.row]
             cell.detailTextLabel!.text = staticText.cellDetailText[indexPath.section][indexPath.row]
+            return cell
+        default:
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "LocationSelectCell")
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator   // Set cell accessory type to DisclosureIndicator, which is an arrow on the right end of the cell
+            cell.textLabel!.text = staticText.rowText[indexPath.section][indexPath.row]
+            cell.detailTextLabel!.text = staticText.cellDetailText[indexPath.section][indexPath.row]
+            return cell
         }
-        return cell
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(staticText.HeaderViewIdentifier)! as UITableViewHeaderFooterView
-        header.textLabel!.text = staticText.headerText[section]
-        return header
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(staticText.HeaderViewIdentifier)! as UITableViewHeaderFooterView
+//        header.textLabel!.text = staticText.headerText[section]
+//        return header
+//    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return staticText.headerText[section]
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -181,7 +270,7 @@ extension ServiceSelectViewController: UITableViewDataSource, UITableViewDelegat
         switch indexPath.section {
         case 2:
             let newIndexPath = NSIndexPath(forRow: indexPath.row+1, inSection: indexPath.section)   // create a new IndexPath
-            let cell = tableView.cellForRowAtIndexPath(newIndexPath)
+            let cell = tableView.cellForRowAtIndexPath(newIndexPath) as? ServiceSelectTableViewCell
             if cell != nil {
                 //  Start deleting the row
                 self.numberRows[indexPath.section] -= 1
